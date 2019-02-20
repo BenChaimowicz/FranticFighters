@@ -18,7 +18,7 @@ namespace FranticFighters.Classes
 
     class GestureSystem
     {
-        private Hero hero;
+        private readonly Hero hero;
         private List<Combos> KnownCombos = new List<Combos>();
 
         public delegate void GestureActivatedEventHandler(object sender, EventArgs e);
@@ -34,13 +34,9 @@ namespace FranticFighters.Classes
             this.hero = hero;
         }
 
-
         protected virtual void OnGestureToggle()
         {
-            if (GestureSystemToggled != null)
-            {
-                GestureSystemToggled(this, EventArgs.Empty);
-            }
+            GestureSystemToggled?.Invoke(this, EventArgs.Empty);
         }
 
         public Combos CheckCombo(List<ComboKey> comboKeys) {

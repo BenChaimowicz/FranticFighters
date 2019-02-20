@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CombatDialog.cs" />
     <Compile Include="Classes\Combos.cs" />
     <Compile Include="Classes\Fighter.cs" />
     <Compile Include="Classes\GameMaster.cs" />

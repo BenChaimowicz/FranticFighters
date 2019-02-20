@@ -8,11 +8,12 @@ namespace FranticFighters.Classes
 {
     class Hero : Fighter
     {
-        public int Level;
-        public int XP;
+        public int Level = 1;
+        public int XP = 0;
 
         private GestureSystem gestureSystem;
         private List<ComboKey> CurrentCombo = new List<ComboKey>();
+        
 
         public Hero()
         {
@@ -25,7 +26,11 @@ namespace FranticFighters.Classes
             if (key != ComboKey.Space)
             {
                 CurrentCombo.Add(key);
-            } else { gestureSystem.CheckCombo(CurrentCombo); }
+            } else
+            {
+                gestureSystem.CheckCombo(CurrentCombo);
+
+            }
         }
 
         public void Attack(ComboKey comboKey) {

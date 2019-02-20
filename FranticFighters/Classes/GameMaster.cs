@@ -9,5 +9,6 @@ namespace FranticFighters.Classes
     static class GameMaster
     {
         public static Hero Hero;
+        
     }
 }

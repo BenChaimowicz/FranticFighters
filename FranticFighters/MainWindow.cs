@@ -13,11 +13,22 @@ namespace FranticFighters
 {
     public partial class MainWindow : Form
     {
-        public void mainWindow_KeyDown(object sender, KeyEventArgs e)
+        private readonly CombatDialog dialogHandler; 
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            KeyPreview = true;
+
+            dialogHandler = new CombatDialog(this);
+            GameMaster.Hero = new Hero();
+        }
+
+        public void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
                 GameMaster.Hero.RecordKey(ComboKey.Up);
-
+        
             if (e.KeyCode == Keys.Down)
                 GameMaster.Hero.RecordKey(ComboKey.Down);
 
@@ -31,14 +42,9 @@ namespace FranticFighters
                 GameMaster.Hero.RecordKey(ComboKey.Space);
         }
 
-        public MainWindow()
-        {
-            InitializeComponent();
-            KeyPreview = true;
-
-           
+        public string CombatDialogText {
+            get { return combatDialog.Text; }
+            set { combatDialog.Text = value; }
         }
-
-        
     }
 }
